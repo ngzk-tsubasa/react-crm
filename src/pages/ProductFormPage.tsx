@@ -88,7 +88,7 @@ class ProductFormPage extends React.Component<
 
   onSave(values: TODO) {
     const product = { ...this.state.product, ...values };
-    let action: ApiAction; 
+    let action: ApiAction;
     if (product.id > 0) {
       action = getAction(UPDATE_PRODUCT, null, product) as ApiAction;
     } else {
@@ -101,7 +101,7 @@ class ProductFormPage extends React.Component<
     const { categoryList, product, isFetching } = this.props;
 
     return (
-      <PageBase title="Product" navigation="Application / Product ">
+      <PageBase title="修改" navigation="切斷玉 / 修改 ">
         {isFetching ? (
           <div>
             <SkeletonForm />
@@ -137,7 +137,7 @@ class ProductFormPage extends React.Component<
                       select
                       component={TextField}
                       as="select"
-                      label="Category"
+                      label="品種"
                       placeholder="Category"
                       variant="outlined"
                       fullWidth={true}
@@ -158,7 +158,7 @@ class ProductFormPage extends React.Component<
                       variant="outlined"
                       component={TextField}
                       placeholder="Product"
-                      label="Product"
+                      label="編號"
                       name="name"
                       fullWidth={true}
                       required
@@ -170,32 +170,12 @@ class ProductFormPage extends React.Component<
                       variant="outlined"
                       component={TextField}
                       placeholder="Price"
-                      label="Price"
+                      label="數量"
                       fullWidth={true}
                       type="number"
                       name="unitPrice"
                       required
                     />
-                  </Grid>
-                  <Grid item style={styles.cell} xs={12} md={4}>
-                    <Field
-                      variant="outlined"
-                      component={TextField}
-                      placeholder="Quantity"
-                      label="Quantity"
-                      fullWidth={true}
-                      type="number"
-                      name="numInStock"
-                      required
-                    />
-                  </Grid>
-
-                  <Grid item style={styles.cell} xs={12} md={4}>
-                    {product && product.avatar && (
-                      <Card style={styles.card}>
-                        <img width={100} src={product.avatar} />
-                      </Card>
-                    )}
                   </Grid>
                 </Grid>
                 <br />

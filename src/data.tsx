@@ -16,11 +16,10 @@ const purple600 = purple['600'];
 
 const data = {
   menus: [
-    { text: "DashBoard", icon: <Assessment />, link: "/dashboard" },
-    { text: "Customer", icon: <PermIdentity />, link: "/customers" },
-    { text: "Order", icon: <ShoppingCartOutlinedIcon />, link: "/orders" },
-    { text: "Product", icon: <StoreOutlinedIcon />, link: "/products" },
-    { text: "About", icon: <InfoOutlinedIcon />, link: "/about" }
+    { text: "返品", icon: <PermIdentity />, link: "/customers" },
+    { text: "運轉計量", icon: <ShoppingCartOutlinedIcon />, link: "/orders" },
+    { text: "切斷玉", icon: <StoreOutlinedIcon />, link: "/products" },
+    { text: "品檢", icon: <InfoOutlinedIcon />, link: "/about" }
   ],
   userMenus: [
     { text: "Sign out", icon: <SettingsPower />, link: "/login" },

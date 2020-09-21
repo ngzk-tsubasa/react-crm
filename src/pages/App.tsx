@@ -15,14 +15,13 @@ import { User } from "../types";
 
 import { thunkAuth } from "../services/thunks";
 import { SIGN_IN, HttpMethod, SIGN_OUT } from "../store/types";
-import DashboardPage from "./DashboardPage";
+import AboutPage from "./AboutPage";
 import CustomerListPage from "./CustomerListPage";
 import CustomerFormPage from "./CustomerFormPage";
 import OrderFormPage from "./OrderFormPage";
 import OrderListPage from "./OrderListPage";
 import ProductFormPage from "./ProductFormPage";
 import ProductListPage from "./ProductListPage";
-import AboutPage from "./AboutPage";
 import NotFoundPage from "./NotFoundPage";
 import ChangePasswordPage from "./ChangePasswordPage";
 
@@ -72,7 +71,7 @@ type AppProps = {
 interface AppState {
   navDrawerOpen: boolean;
   isSmallScreen: boolean;
-  showDashboard: boolean;
+  showAboutPage: boolean;
 }
 
 class App extends React.Component<AppProps, AppState> {
@@ -81,7 +80,7 @@ class App extends React.Component<AppProps, AppState> {
     this.state = {
       navDrawerOpen: !isSmallsWindowScreen(),
       isSmallScreen: isSmallsWindowScreen(),
-      showDashboard: false,
+      showAboutPage: false,
     };
     this.signOut = this.signOut.bind(this);
     this.changePass = this.changePass.bind(this);
@@ -106,10 +105,10 @@ class App extends React.Component<AppProps, AppState> {
     this.resize();
     // @ts-ignore
     const pathname = this.props.location.pathname;
-    const showDashboard = pathname === "/" || pathname.endsWith("dashboard");
-    this.setState({ showDashboard });
+    const showAboutPage = pathname === "/" || pathname.endsWith("about");
+    this.setState({ showAboutPage });
     // @ts-ignore
-    this.props.isAuthenticated && this.props.location.pathname === "/" && this.props.history.push("/dashboard");
+    this.props.isAuthenticated && this.props.location.pathname === "/" && this.props.history.push("/about");
   }
 
   componentDidUpdate(prevProps) {
@@ -119,7 +118,7 @@ class App extends React.Component<AppProps, AppState> {
     ) {
       // this.setState({ snackbarOpen: true });
       // @ts-ignore
-      this.props.isAuthenticated && this.props.location.pathname === "/" && this.props.history.push("/dashboard");
+      this.props.isAuthenticated && this.props.location.pathname === "/" && this.props.history.push("/about");
     }
   }
 
@@ -161,7 +160,7 @@ class App extends React.Component<AppProps, AppState> {
 
     // @ts-ignore
     const pathname = this.props.location.pathname;
-    const showDashboard = pathname === "/" || pathname.endsWith("dashboard");
+    const showAboutPage = pathname === "/" || pathname.endsWith("about");
 
     return (
       <MuiThemeProvider theme={themeDefault}>
@@ -182,7 +181,7 @@ class App extends React.Component<AppProps, AppState> {
                 isSmallScreem={isSmallScreen}
               />
               <div style={appStlyes.content}>
-                {showDashboard && <DashboardPage />}
+                {showAboutPage && <AboutPage />}
                 <Route exact path={`/customers`} component={CustomerListPage} />
                 <Route path={`/customer/:id`} component={CustomerFormPage} />
                 <Route path={`/newcustomer/`} component={CustomerFormPage} />
@@ -192,7 +191,6 @@ class App extends React.Component<AppProps, AppState> {
                 <Route exact path={`/products`} component={ProductListPage} />
                 <Route path={`/product/:id`} component={ProductFormPage} />
                 <Route path={`/newproduct`} component={ProductFormPage} />
-                <Route path={`/about`} component={AboutPage} />
                 <Route path="/changepass" component={ChangePasswordPage} />
                 {/* <Route path="/404" component={NotFoundPage} />
                 <Redirect to="/404" /> */}
