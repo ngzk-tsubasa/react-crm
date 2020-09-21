@@ -9,7 +9,7 @@ import { TextField } from 'formik-material-ui';
 import { LinearProgress } from '@material-ui/core';
 
 const styles = {
-  
+
   loginContainer: {
     minWidth: 320,
     maxWidth: 400,
