@@ -25,7 +25,7 @@ const styles = listPageStyle;
 const defaultProps = {
   model: 'product',
   dataKeys: ['name', 'category.name', 'unitPrice', 'numInStock','actions'],
-  headers: ['Product Name', 'Category Name', 'Price', 'Total In Stock', 'Actions'],
+  headers: ['編號', '品種', '數量', '累計', '操作'],
 };
 
 type DefaultProps = typeof defaultProps;
