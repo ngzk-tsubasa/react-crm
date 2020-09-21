@@ -110,7 +110,7 @@ class ProductListPage extends React.Component<ProductListProps, ProductListState
       const isFetching = this.props.isFetching;
       this.setState({ page, totalPages, items, isFetching });
     }
-    
+
 
     if (this.props.deleted !== prevProps.deleted && this.props.deleted === true) {
       this.setState({ snackbarOpen: true });
@@ -196,7 +196,7 @@ class ProductListPage extends React.Component<ProductListProps, ProductListState
     const { isFetching, page, totalPages, items } = this.state;
 
     return (
-      <PageBase title={'Products (' + productList.length + ')'} navigation="React CRM / Product">
+      <PageBase title={'切斷玉 (' + productList.length + ')'} navigation="糌粑爸的東西 / 切斷玉">
         {isFetching ? (
           <div>
             <SkeletonList />
